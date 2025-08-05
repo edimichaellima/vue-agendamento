@@ -1,29 +1,95 @@
-# vue-agendamento
+# Frontend - Sistema de Agendamento de Transferências
 
-This template should help get you started developing with Vue 3 in Vite.
+Este é o frontend da aplicação de agendamento de transferências financeiras, desenvolvido com Vue.js 3 e Vite. Ele consome a API REST do backend em Spring Boot e permite agendar transferências e consultar extratos.
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🧱 Arquitetura
 
-## Customize configuration
+- SPA (Single Page Application) com Vue.js 3
+- Estrutura em componentes:
+  - `AgendarTransferencia.vue`: formulário para agendamento
+  - `ListaTransferencias.vue`: tabela com agendamentos
+- Camada de serviço isolada (`axios`) para comunicação com a API
+- View principal (`Home.vue`) que compõe os componentes
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## 🚀 Tecnologias e Ferramentas
 
-```sh
+- **Vue.js 3**
+- **Vite**
+- **Axios**
+- **JavaScript (ES6+)**
+- **Node.js 18+**
+- **NPM**
+- *(Opcional)* Tailwind CSS ou Bootstrap
+
+---
+
+## 📦 Estrutura do projeto
+
+```
+vue-agendamento/
+├── src/
+│   ├── components/
+│   │   ├── AgendarTransferencia.vue
+│   │   └── ListaTransferencias.vue
+│   ├── services/
+│   │   └── api.js
+│   ├── views/
+│   │   └── Home.vue
+│   ├── App.vue
+│   └── main.js
+├── index.html
+└── package.json
+```
+
+---
+
+## ⚙️ Pré-requisitos
+
+- Node.js 18+
+- NPM
+- Git (opcional)
+- Backend rodando em `http://localhost:8080`
+
+---
+
+## ▶️ Como executar
+
+### Clonar o repositório
+
+```bash
+git clone https://github.com/edimichaellima/vue-agendamento.git
+cd vue-agendamento
+```
+
+### Instalar dependências
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Rodar o frontend
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Acesse:  
+[http://localhost:5173](http://localhost:5173)
 
-```sh
-npm run build
-```
+---
+
+## 🌐 Integração com o Backend
+
+- A API utilizada é servida via `http://localhost:8080/transferencias`
+- O `axios` está configurado em `src/services/api.js`
+- CORS deve estar habilitado no backend (`@CrossOrigin`)
+
+---
+
+## 📄 License
+
+MIT (livre para uso acadêmico ou profissional).
