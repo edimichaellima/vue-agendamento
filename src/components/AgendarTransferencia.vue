@@ -4,12 +4,24 @@
     <form @submit.prevent="agendar">
       <div class="form-group">
         <label>Conta de Origem</label>
-        <input v-model="form.contaOrigem" placeholder="Digite a conta origem" required />
+        <input 
+          v-model="form.contaOrigem"
+          @input="mascararConta('contaOrigem')"
+          placeholder="Digite a conta origem" 
+          maxlength="10"
+          minlength="10"
+          required />
       </div>
 
       <div class="form-group">
         <label>Conta de Destino</label>
-        <input v-model="form.contaDestino" placeholder="Digite a conta destino" required />
+        <input
+          v-model="form.contaDestino"
+          @input="mascararConta('contaDestino')"
+          placeholder="Digite a conta destino"
+          maxlength="10"
+          minlength="10"
+          required />
       </div>
 
       <div class="form-group">
@@ -41,6 +53,11 @@ const form = reactive({
 });
 
 const mensagem = ref('');
+
+// Função de máscara para contas (somente números e até 10 dígitos)
+function mascararConta(campo) {
+  form[campo] = form[campo].replace(/\D/g, '').substring(0, 10);
+}
 
 async function agendar() {
   try {
